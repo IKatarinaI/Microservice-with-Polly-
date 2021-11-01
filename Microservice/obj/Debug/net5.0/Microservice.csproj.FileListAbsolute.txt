@@ -86,7 +86,6 @@ C:\Users\k.ivosevic\Desktop\HackerRank\Microservice-with-Polly-\Microservice\obj
 C:\Users\k.ivosevic\Desktop\HackerRank\Microservice-with-Polly-\Microservice\obj\Debug\net5.0\staticwebassets\Microservice.StaticWebAssets.xml
 C:\Users\k.ivosevic\Desktop\HackerRank\Microservice-with-Polly-\Microservice\obj\Debug\net5.0\scopedcss\bundle\Microservice.styles.css
 C:\Users\k.ivosevic\Desktop\HackerRank\Microservice-with-Polly-\Microservice\obj\Debug\net5.0\Microservice.RazorTargetAssemblyInfo.cache
-C:\Users\k.ivosevic\Desktop\HackerRank\Microservice-with-Polly-\Microservice\obj\Debug\net5.0\Microservice.csproj.CopyComplete
 C:\Users\k.ivosevic\Desktop\HackerRank\Microservice-with-Polly-\Microservice\obj\Debug\net5.0\Microservice.dll
 C:\Users\k.ivosevic\Desktop\HackerRank\Microservice-with-Polly-\Microservice\obj\Debug\net5.0\ref\Microservice.dll
 C:\Users\k.ivosevic\Desktop\HackerRank\Microservice-with-Polly-\Microservice\obj\Debug\net5.0\Microservice.pdb

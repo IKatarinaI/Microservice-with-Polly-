@@ -11,29 +11,28 @@ namespace Microservice.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly WeatherClient _weatherClient;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,
+                                         WeatherClient weatherClient)
         {
             _logger = logger;
+            _weatherClient = weatherClient;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        [Route("{city}")]
+        public async Task<WeatherForecast> GetAsync(string city)
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var forecast = await _weatherClient.GetCurrentWeatherAsync(city);
+
+            return new WeatherForecast
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+                Summary = forecast.weather[0].description,
+                TemperatureC = (int)forecast.main.temperature,
+                Date = DateTimeOffset.FromUnixTimeSeconds(forecast.datetime).DateTime
+            };
         }
     }
 }
