@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Polly;
 
 namespace Microservice
 {
@@ -33,7 +34,8 @@ namespace Microservice
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Microservice", Version = "v1" });
             });
 
-            services.AddHttpClient<WeatherClient>();
+            services.AddHttpClient<WeatherClient>()
+                    .AddTransientHttpErrorPolicy(builder => builder.WaitAndRetryAsync(10, retryAttemp => TimeSpan.FromSeconds(Math.Pow(2, retryAttemp));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
