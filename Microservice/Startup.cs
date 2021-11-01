@@ -32,6 +32,8 @@ namespace Microservice
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Microservice", Version = "v1" });
             });
+
+            services.AddHttpClient<WeatherClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
